@@ -149,8 +149,8 @@ namespace FootballManager2021
                 int goalkeeping = random.Next(15, 50);
                 int bodystrength = random.Next(50, 90);
                 int tactical = random.Next(60, 99);
-                int technicskills = random.Next(60, 99);
-                int header = random.Next(50, 99);
+                int technicskills = random.Next(50, 70);
+                int header = random.Next(40, 70);
                 int shooting = random.Next(30, 50);
                 int flanks = random.Next(30, 50);
                 int passing = random.Next(50, 99);
@@ -174,6 +174,7 @@ namespace FootballManager2021
                 if (i > 3 && i <= 11)
                 {
                     position = "V";
+                    header = random.Next(70, 90);
                     defense = random.Next(70, 99);
                     tactical = random.Next(70, 99);
                     bodystrength = random.Next(70, 99);
@@ -187,15 +188,16 @@ namespace FootballManager2021
                     tactical = random.Next(70, 99);
                     technicskills = random.Next(70, 99);
                     passing = random.Next(70, 99);
-                    shooting = random.Next(60, 90);
+                    shooting = random.Next(70, 90);
                     speed = random.Next(70, 99);
+                    flanks = random.Next(70, 99);
                 }
                 if (i > 17 && i <= 22)
                 {
                     position = "ST";
                     attack = random.Next(70, 99);
                     tactical = random.Next(70, 99);
-                    shooting = random.Next(70, 99);
+                    shooting = random.Next(75, 99);
                     header = random.Next(70, 99);
                     speed = random.Next(70, 99);
                     passing = random.Next(60, 90);
@@ -225,8 +227,8 @@ namespace FootballManager2021
                 int goalkeeping = random.Next(15, 50);
                 int bodystrength = random.Next(50, 90);
                 int tactical = random.Next(60, 99);
-                int technicskills = random.Next(60, 99);
-                int header = random.Next(50, 99);
+                int technicskills = random.Next(50, 70);
+                int header = random.Next(40, 70);
                 int shooting = random.Next(30, 50);
                 int flanks = random.Next(30, 50);
                 int passing = random.Next(50, 99);
@@ -250,6 +252,7 @@ namespace FootballManager2021
                 if (i > 3 && i <= 11)
                 {
                     position = "V";
+                    header = random.Next(70, 90);
                     defense = random.Next(70, 99);
                     tactical = random.Next(70, 99);
                     bodystrength = random.Next(70, 99);
@@ -263,7 +266,7 @@ namespace FootballManager2021
                     tactical = random.Next(70, 99);
                     technicskills = random.Next(70, 99);
                     passing = random.Next(70, 99);
-                    shooting = random.Next(60, 90);
+                    shooting = random.Next(70, 90);
                     speed = random.Next(70, 99);
                 }
                 if (i > 17 && i <= 22)
@@ -271,7 +274,7 @@ namespace FootballManager2021
                     position = "ST";
                     attack = random.Next(70, 99);
                     tactical = random.Next(70, 99);
-                    shooting = random.Next(70, 99);
+                    shooting = random.Next(75, 99);
                     header = random.Next(70, 99);
                     speed = random.Next(70, 99);
                     passing = random.Next(60, 90);
