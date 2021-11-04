@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:FootballManager2021"
         mc:Ignorable="d"
         Title="TeamView" Height="450" Width="1056.347" Background="#f1faee">
-    <Grid>
+    <Grid x:Name="playerCardGrid">
+    <Grid x:Name="allPlayersGrid" >
         <Grid.RowDefinitions >
             <RowDefinition Height="50" />
             <RowDefinition Height="Auto"/>
@@ -130,4 +131,5 @@
 
         </ListView>
     </Grid>
+</Grid>
 </Window>
