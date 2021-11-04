@@ -1,0 +1,14 @@
+﻿<Window x:Class="FootballManager2021.MyTeamWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FootballManager2021"
+        mc:Ignorable="d"
+        Title="MyTeamWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btnNextMatch" Click="btnNextMatch_Click"  Content="Next Match" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+        <Button x:Name="btnViewTeam" Click="btnViewTeam_Click"   Content="Team ansehen" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,0,0,0" />
+
+    </Grid>
+</Window>

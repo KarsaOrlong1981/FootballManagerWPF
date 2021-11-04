@@ -20,19 +20,23 @@ namespace FootballManager2021
     /// </summary>
     public partial class TeamView : Window
     {
-        private List<Club> league;
+        
         CreatClubs creat;
-        public TeamView()// diesem konstrukor muss ich die beiden Teams übergeben,,,,später
+        List<Player> club;
+        Button backBTN;
+        public TeamView(List<Player> club)// das zweite Team ist nur zu testzwecken hier später wird hier nur ein Team verarbeitet
         {
             InitializeComponent();
             creat = new CreatClubs();
-            //creat.CreatNewFileEngland("england.txt");
-            league = creat.LoadFileEngland("england.txt");
-            this.Title = league[0].ClubName;
+            this.club = club;
+           
+
+            this.Title = club[0].ActualClub;
+            
             //manU = league[0].TeamPlayer;
             //lndonClocks = league[1].TeamPlayer;
-            new MatchResult(league[0].TeamPlayer, league[1].TeamPlayer);
-            foreach ( var player in league[0].TeamPlayer)
+           // new MatchResult(club);
+            foreach ( var player in club)
             {
                 listPos.Items.Add(player.Position);
                 listName.Items.Add(player.Forename + " " + player.Surname);
@@ -59,19 +63,49 @@ namespace FootballManager2021
                 listFrm.Items.Add(player.Form);
 
             }
+            Button back = new Button
+            {
+                Content = "Zurück zur Teamansicht",
+                Background = Brushes.Black,
+                Foreground = Brushes.White,
+                HorizontalAlignment = HorizontalAlignment.Right,
+                VerticalAlignment = VerticalAlignment.Bottom,
+                Visibility = Visibility.Hidden
+            };
+            back.Click += Back_Click;
+            backBTN = back;
+            playerCardGrid.Children.Add(back);
         }
 
-       
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            TeamView view = new TeamView(club);
+            this.Close();
+            view.Show();
+        }
 
         private void listName_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           var name = (sender as ListView).SelectedItem ;
-            allPlayersGrid.Visibility = Visibility.Collapsed;
-            PlayerCard(Convert.ToString(name));
+            backBTN.Visibility = Visibility.Visible;
+            var name = (sender as ListView).SelectedItem ;
+            allPlayersGrid.Visibility = Visibility.Hidden;
+            
+            PlayerCard(Convert.ToString(name), club);
             Debug.WriteLine("Der geklickte Name: " + name);
         }
-        void PlayerCard(string playerName)
+        void PlayerCard(string playerName, List<Player> team)
         {
+
+            string[] splitName = playerName.Split(' ');
+            string avatar = string.Empty;
+            foreach (var player in team)
+            {
+                if (player.Forename == splitName[0] && player.Surname == splitName[1])
+                {
+                    avatar = player.Avatar;
+                    break;
+                }
+            }
             Grid gridDynamic = new Grid
             {
                HorizontalAlignment = HorizontalAlignment.Stretch,
@@ -93,10 +127,10 @@ namespace FootballManager2021
 
             Image playerIMG = new Image
             {
-                Source = new BitmapImage(new Uri("pics/girl30.png", UriKind.Relative)),
+                Source = new BitmapImage(new Uri(avatar, UriKind.Relative)),
                 HorizontalAlignment = HorizontalAlignment.Left,
-                Width = 30,
-                Height = 30,
+                Width = 100,
+                Height = 100,
                 Margin = new Thickness(20)
                 
             };
@@ -121,6 +155,11 @@ namespace FootballManager2021
             gridDynamic.Children.Add(name);
             gridDynamic.Children.Add(playerIMG);
             playerCardGrid.Children.Add(gridDynamic);
+        }
+
+        private void newGame_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

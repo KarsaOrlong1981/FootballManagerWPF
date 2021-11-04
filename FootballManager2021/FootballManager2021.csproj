@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MyTeamWindow.xaml.cs">
+      <DependentUpon>MyTeamWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TeamView.xaml.cs">
       <DependentUpon>TeamView.xaml</DependentUpon>
     </Compile>
@@ -73,6 +76,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MyTeamWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TeamView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,6 +119,30 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="pics\girl30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\avataaars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\BlackRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\BlondRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\WhiteRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\RedRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\GoldRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\GrausRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\BlackKurzRed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

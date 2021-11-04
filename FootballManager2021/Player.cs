@@ -9,6 +9,7 @@ namespace FootballManager2021
     public class Player
     {
         //Personality
+        public string Avatar { get; set; }
         public string Forename { get; set; }
         public string Surname { get; set; }
         public string Foot { get; set; }

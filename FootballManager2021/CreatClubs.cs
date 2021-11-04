@@ -40,6 +40,13 @@ namespace FootballManager2021
             foot = leftRigthBoth[rndFoot.Next(0, leftRigthBoth.Length)];
             return foot;
         }
+        private string GetAvatar()
+        {
+            string avatar = string.Empty;
+            string[] avatarArray = { "pics/avataaars.png", "pics/BlackRed.png", "pics/BlondRed.png", "pics/WhiteRed.png","pics/GoldRed.png", "pics/RedRed.png", "pics/GrausRed.png", "pics/BlackKurzRed.png"};
+            avatar = avatarArray[random.Next(0, avatarArray.Length)];
+            return avatar;
+        }
         private string GetEnglishForeName()
         {
            
@@ -81,7 +88,7 @@ namespace FootballManager2021
                      sw.WriteLine(player.ActualClub + " " + player.Age + " " + player.Position + " " + player.GoalKeeping + " " + player.Attack + " " + player.Defense + " " + player.Midfield + " " +
                              player.Forename + " " + player.Surname + " " + player.Form + " " + player.Size + " " + player.Weigth + " " + player.Talent + " " + player.Moral + " " +
                              player.BodyStrength + " " + player.Fitness + " " + player.Flanks + " " + player.Header + " " + player.Passing + " " + player.Speed + " " + player.Tactical + " " +
-                             player.Shooting + " " + player.TechnicSkill + " " + player.Foot + " " + player.Strength);
+                             player.Shooting + " " + player.TechnicSkill + " " + player.Foot + " " + player.Strength + " " + player.Avatar);
                 }
                 foreach (var player in lndonClocks)
                 {
@@ -89,7 +96,7 @@ namespace FootballManager2021
                     sw.WriteLine(player.ActualClub + " " + player.Age + " " + player.Position + " " + player.GoalKeeping + " " + player.Attack + " " + player.Defense + " " + player.Midfield + " " +
                              player.Forename + " " + player.Surname + " " + player.Form + " " + player.Size + " " + player.Weigth + " " + player.Talent + " " + player.Moral + " " +
                              player.BodyStrength + " " + player.Fitness + " " + player.Flanks + " " + player.Header + " " + player.Passing + " " + player.Speed + " " + player.Tactical + " " +
-                             player.Shooting + " " + player.TechnicSkill + " " + player.Foot + " " + player.Strength);
+                             player.Shooting + " " + player.TechnicSkill + " " + player.Foot + " " + player.Strength + " " + player.Avatar);
                 }
 
             }
@@ -118,7 +125,7 @@ namespace FootballManager2021
                                           Defense = Convert.ToInt32(sv[6]), Midfield = Convert.ToInt32(sv[7]), Forename = sv[8], Surname = sv[9], Form = Convert.ToInt32(sv[10]), Size = Convert.ToDouble(sv[11]),
                                           Weigth = Convert.ToInt32(sv[12]), Talent = Convert.ToInt32(sv[13]), Moral = Convert.ToInt32(sv[14]), BodyStrength = Convert.ToInt32(sv[15]), Fitness = Convert.ToInt32(sv[16]),
                                           Flanks = Convert.ToInt32(sv[17]), Header = Convert.ToInt32(sv[18]), Passing = Convert.ToInt32(sv[19]), Speed = Convert.ToInt32(sv[20]), Tactical = Convert.ToInt32(sv[21]), 
-                                          Shooting = Convert.ToInt32(sv[22]), TechnicSkill = Convert.ToInt32(sv[23]), Foot = sv[24], Strength = Convert.ToInt32(sv[25]) };
+                                          Shooting = Convert.ToInt32(sv[22]), TechnicSkill = Convert.ToInt32(sv[23]), Foot = sv[24], Strength = Convert.ToInt32(sv[25]), Avatar = sv[26] };
                     if (player.ActualClub == "Manchester Devils")
                         manU.Add(player);
                     if (player.ActualClub == "London Clocks")
@@ -164,6 +171,7 @@ namespace FootballManager2021
                 int weigth = random.Next(65, 85);
                 int age = random.Next(16, 35);
                 string foot = SetFoot();
+                string avatar = GetAvatar();
                 if (i >= 0 && i <= 3)
                 {
                     position = "TW";
@@ -204,7 +212,12 @@ namespace FootballManager2021
                 }
                 forename = GetEnglishForeName();
                 surename = GetEnglishSureName();
-                player = new Player { ActualClub = "Manchester Devils", Age = age, Position = position, GoalKeeping = goalkeeping, Attack = attack, Defense = defense, Midfield = midfield, Forename = forename, Surname = surename, Form = form, Size = size, Weigth = weigth, Talent = talent, Moral = moral, BodyStrength = bodystrength, Fitness = fitness, Flanks = flanks, Header = header, Passing = passing, Speed = speed, Tactical = tactical, Shooting = shooting, TechnicSkill = technicskills, Foot = foot };
+                if (forename == "Boubacar" || forename == "Camara" || forename == "Ceesay" || forename == "Coulibaly" || forename == "Demba" || forename == "Diakhate" || forename == "Diarra"
+                    || forename == "Diop" || forename == "Sonko")
+                {
+                    avatar = "pics/BlackRed.png";
+                }
+                player = new Player { ActualClub = "Manchester Devils", Age = age, Position = position, GoalKeeping = goalkeeping, Attack = attack, Defense = defense, Midfield = midfield, Forename = forename, Surname = surename, Form = form, Size = size, Weigth = weigth, Talent = talent, Moral = moral, BodyStrength = bodystrength, Fitness = fitness, Flanks = flanks, Header = header, Passing = passing, Speed = speed, Tactical = tactical, Shooting = shooting, TechnicSkill = technicskills, Foot = foot, Avatar = avatar};
                 player.Strength = player.OverallStrength();
                 manU.Add(player);
             }
@@ -242,6 +255,7 @@ namespace FootballManager2021
                 int weigth = random.Next(65, 85);
                 int age = random.Next(16, 35);
                 string foot = SetFoot();
+                string avatar = GetAvatar();
                 if (i >= 0 && i <= 3)
                 {
                     position = "TW";
@@ -281,7 +295,12 @@ namespace FootballManager2021
                 }
                 forename = GetEnglishForeName();
                 surename = GetEnglishSureName();
-                player = new Player { ActualClub = "London Clocks", Age = age, Position = position, GoalKeeping = goalkeeping, Attack = attack, Defense = defense, Midfield = midfield, Forename = forename, Surname = surename, Form = form, Size = size, Weigth = weigth, Talent = talent, Moral = moral, BodyStrength = bodystrength, Fitness = fitness, Flanks = flanks, Header = header, Passing = passing, Speed = speed, Tactical = tactical, Shooting = shooting, TechnicSkill = technicskills, Foot = foot };
+                if (forename == "Boubacar" || forename == "Camara" || forename == "Ceesay" || forename == "Coulibaly" || forename == "Demba" || forename == "Diakhate" || forename == "Diarra"
+                   || forename == "Diop" || forename == "Sonko")
+                {
+                    avatar = "pics/BlackRed.png";
+                }
+                player = new Player { ActualClub = "London Clocks", Age = age, Position = position, GoalKeeping = goalkeeping, Attack = attack, Defense = defense, Midfield = midfield, Forename = forename, Surname = surename, Form = form, Size = size, Weigth = weigth, Talent = talent, Moral = moral, BodyStrength = bodystrength, Fitness = fitness, Flanks = flanks, Header = header, Passing = passing, Speed = speed, Tactical = tactical, Shooting = shooting, TechnicSkill = technicskills, Foot = foot, Avatar = avatar };
                 player.Strength = player.OverallStrength();
                 lndonClocks.Add(player);
             }

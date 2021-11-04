@@ -6,13 +6,22 @@
         xmlns:local="clr-namespace:FootballManager2021"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="grid">
         <Grid.ColumnDefinitions >
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Width="300" Height="200" x:Name="btn" Click="btn_Click" Content="Click"/>
-
-      
+        <Grid.RowDefinitions >
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" x:Name="btn" Click="btn_Click" Content="Spielerkader" Visibility="Hidden"/>
+        <Button Grid.Row="1" x:Name="btnliga" Click="btnliga_Click"  Content="Liga wählen" />
+        <Button Grid.Row="1" Grid.Column="1" x:Name="btnTeam" Click="btnTeam_Click" Content="Team wählen" Visibility="Hidden"/>
+       
+        <Button Grid.Row="3" x:Name="btnEngland" Click="btnEngland_Click"  Content="England" Visibility="Hidden"/>
+       
     </Grid>
 </Window>
