@@ -1,0 +1,133 @@
+﻿<Window x:Class="FootballManager2021.TeamView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FootballManager2021"
+        mc:Ignorable="d"
+        Title="TeamView" Height="450" Width="1056.347" Background="#f1faee">
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="Pos" FontSize="20" Background="#e63946"  Foreground="#f1faee"   HorizontalAlignment="Stretch"  HorizontalContentAlignment="Center"   />
+        <Label Grid.Row="0" Grid.Column="1" Content="Name" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"  Foreground="#f1faee" />
+        <Label Grid.Row="0" Grid.Column="2" Content="Alter" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="3" Content="Fuss" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="4" Content="Gwt" ToolTip="Gewicht" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="5" Content="Gr." ToolTip="Größe" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="6" Content="Stä" ToolTip="Gesamtstärke" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="7" Content="Def" ToolTip="Defensiv" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="8" Content="Mid" ToolTip="Mittelfeld" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="9" Content="Att" ToolTip="Angriff" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="10" Content="Tor" ToolTip="Torwart" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="11" Content="Kst" ToolTip="Körperstärke" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="12" Content="Tac" ToolTip="Taktisch" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="13" Content="Tec" ToolTip="Technik" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="14" Content="Kop" ToolTip="Kopfball" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="15" Content="Sho" ToolTip="Schuss" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="16" Content="Fla" ToolTip="Flanken" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="17" Content="Pas" ToolTip="Passen" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="18" Content="Spe" ToolTip="Geschwindigkeit" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="19" Content="Mor" ToolTip="Moral" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="20" Content="Tal" ToolTip="Talent" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="21" Content="Fit" ToolTip="Fitness" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <Label Grid.Row="0" Grid.Column="22" Content="Frm" ToolTip="Form" FontSize="20" Background="#e63946" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"   Foreground="#f1faee"/>
+        <ListView Grid.Row="1" Grid.Column="0" x:Name="listPos" HorizontalAlignment= "Center" FontSize="20" VerticalAlignment= "Stretch" Background="#1d3557"  Foreground="#f1faee" >
+           
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="1" x:Name="listName" ToolTip="zum Spielerprofil" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" SelectionChanged="listName_SelectionChanged" >
+            
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="2" x:Name="listAlter" Foreground="#3A86FF" HorizontalAlignment= "Stretch"  FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="3" x:Name="listFuss" Foreground="#e63946" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="4" x:Name="listGewicht" Foreground="#3A86FF"   HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="5" x:Name="listGr"  Foreground="#e63946" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="6" x:Name="listBewer" Background="DarkRed"   Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="7" x:Name="listDef" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="8" x:Name="listMid" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="9" x:Name="listAtt" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="10" x:Name="listTor" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="11" x:Name="listKst" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="12" x:Name="listTac" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="13" x:Name="listTec" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="14" x:Name="listKop" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="15" x:Name="listSho" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="16" x:Name="listFla" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="17" x:Name="listPas" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="18" x:Name="listSpe" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="19" x:Name="listMor" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="20" x:Name="listTal" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="21" x:Name="listFit" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+        <ListView Grid.Row="1" Grid.Column="22" x:Name="listFrm" Background="#457b9d"  Foreground="#f1faee" HorizontalAlignment= "Stretch" FontSize="20" VerticalAlignment= "Stretch" >
+
+        </ListView>
+    </Grid>
+</Window>
