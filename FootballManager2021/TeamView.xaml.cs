@@ -24,10 +24,12 @@ namespace FootballManager2021
         CreatClubs creat;
         List<Player> club;
         Button backBTN;
+        Club strength;
         public TeamView(List<Player> club)// das zweite Team ist nur zu testzwecken hier später wird hier nur ein Team verarbeitet
         {
             InitializeComponent();
             creat = new CreatClubs();
+            strength = new Club();
             this.club = club;
            
 
@@ -63,6 +65,17 @@ namespace FootballManager2021
                 listFrm.Items.Add(player.Form);
 
             }
+            int overallStrength = strength.GetClubStrength(club);
+            Label stre = new Label
+            {
+                Content = "Gesamtstärke: " + overallStrength,
+                FontSize = 30.0,
+                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Bottom,
+                Margin = new Thickness(20),
+                Background = Brushes.Black,
+                Foreground = Brushes.White
+            };
             Button back = new Button
             {
                 Content = "Zurück zur Teamansicht",
@@ -75,6 +88,7 @@ namespace FootballManager2021
             back.Click += Back_Click;
             backBTN = back;
             playerCardGrid.Children.Add(back);
+            playerCardGrid.Children.Add(stre);
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

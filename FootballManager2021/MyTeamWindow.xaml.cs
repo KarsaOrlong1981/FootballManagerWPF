@@ -39,5 +39,11 @@ namespace FootballManager2021
 
             teamview.Show();
         }
+
+        private void btnViewMatches_Click(object sender, RoutedEventArgs e)
+        {
+            Matches matches = new Matches(leagueTeams);
+            matches.Show();
+        }
     }
 }

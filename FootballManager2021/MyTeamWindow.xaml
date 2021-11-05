@@ -9,6 +9,6 @@
     <Grid>
         <Button x:Name="btnNextMatch" Click="btnNextMatch_Click"  Content="Next Match" HorizontalAlignment="Left" VerticalAlignment="Top"  />
         <Button x:Name="btnViewTeam" Click="btnViewTeam_Click"   Content="Team ansehen" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,0,0,0" />
-
+        <Button x:Name="btnViewMatches" Click="btnViewMatches_Click"   Content="Spielplan" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,0,0,0" />
     </Grid>
 </Window>

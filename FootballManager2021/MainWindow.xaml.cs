@@ -46,6 +46,7 @@ namespace FootballManager2021
         {
             btnliga.Visibility = Visibility.Hidden;
             btnEngland.Visibility = Visibility.Visible;
+           
         }
 
         private void btnTeam_Click(object sender, RoutedEventArgs e)
@@ -65,6 +66,7 @@ namespace FootballManager2021
                 grid.Children.Add(btnX);
                 row++;
             }
+            new MatchDay(league);
         }
 
         private void BtnX_Click(object sender, RoutedEventArgs e)
