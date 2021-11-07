@@ -19,13 +19,22 @@ namespace FootballManager2021
     /// </summary>
     public partial class MyTeamWindow : Window
     {
-        List<Player> myClub;
+        List<Player> myPlayer;
         List<Club> leagueTeams;
-        public MyTeamWindow(List<Player> myClub,List<Club> leagueTeams)
+        Club myClub;
+        public MyTeamWindow(List<Player> myPlayer,List<Club> leagueTeams)
         {
             InitializeComponent();
-            this.myClub = myClub;
+            this.myPlayer = myPlayer;
             this.leagueTeams = leagueTeams;
+            foreach (var club in leagueTeams)
+            {
+                if (myPlayer[0].ActualClub == club.ClubName)
+                {
+                    myClub = club;
+                    break;
+                }
+            }
         }
 
         private void btnNextMatch_Click(object sender, RoutedEventArgs e)
@@ -35,15 +44,25 @@ namespace FootballManager2021
 
         private void btnViewTeam_Click(object sender, RoutedEventArgs e)
         {
-            TeamView teamview = new TeamView(myClub);
+            TeamView teamview = new TeamView(myPlayer);
 
             teamview.Show();
         }
 
         private void btnViewMatches_Click(object sender, RoutedEventArgs e)
         {
-            Matches matches = new Matches(leagueTeams);
+            Matches matches = new Matches(leagueTeams, myClub);
+           
             matches.Show();
+            matches.GetMatchesForSaison();
+        }
+
+        private void btnViewMatchesMyTeam_Click(object sender, RoutedEventArgs e)
+        {
+            Matches matches = new Matches(leagueTeams, myClub);
+           
+            matches.Show();
+            matches.GetMatchesForMyTeam();
         }
     }
 }

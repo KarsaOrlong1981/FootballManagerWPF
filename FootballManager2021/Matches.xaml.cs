@@ -20,50 +20,184 @@ namespace FootballManager2021
     public partial class Matches : Window
     {
         MatchDay matchday;
-        Club[,] repertoire;
-        public Matches(List<Club> league)
+        List<string> repFirstRound, repSecondRound;
+        Club myTeam;
+        List<Club> league;
+        SolidColorBrush matchDayColor, lines;
+        List<string> myTeamFR, awayTeamsFR, myteamSR, awayTeamSR;
+        public Matches(List<Club> league, Club myTeam)
         {
             InitializeComponent();
             // Den Spielplan aufnehmen
+            myTeamFR = new List<string>();
+            awayTeamsFR = new List<string>();
+          
+            matchDayColor = new SolidColorBrush();
+            lines = new SolidColorBrush();
+            this.league = league;
+            this.myTeam = myTeam;
             matchday = new MatchDay(league);
-            this.repertoire = matchday.Repertoire(league);
-            GetMatchesForSaison();
+            repFirstRound = matchday.GetFirstRound(league);
+            repSecondRound = matchday.GetSecondRound(league);
+           
+           
         }
-        void GetMatchesForSaison()
+        public void GetMatchesForMyTeam()
         {
+           
             int row = 0;
-            int column = 0;
-            
-            foreach (var club in repertoire)
+            int myMatchDayCount = 1;
+            string myMatch = string.Empty;
+            foreach (var match in repFirstRound)
             {
-              
-                Label match = new Label
+                if (match.Contains(myTeam.ClubName))
                 {
-                    Content = club.ClubName,
-                    Foreground = Brushes.Black,
+                    myTeamFR.Add("Spieltag " + myMatchDayCount);
+                    myTeamFR.Add(match);
+                    myMatchDayCount++;
+                }
+            }
+            foreach (var match in repSecondRound)
+            {
+                if (match.Contains(myTeam.ClubName))
+                {
+                    myTeamFR.Add("Spieltag " + myMatchDayCount);
+                    myTeamFR.Add(match);
+                    myMatchDayCount++;
+                }
+            }
+
+            //Hinrunde mein Team
+            foreach (var match in myTeamFR )
+            {
+                if (row % 2 == 0)
+                {
+                    lines = Brushes.LightGray;
+                }
+                else
+                {
+                    lines = Brushes.LightCyan;
+                }
+                if (match.Substring(0, 5) == "Spiel")
+                {
+                    matchDayColor = Brushes.Black;
+                   
+                }
+                else
+                {
+                    matchDayColor = Brushes.Black;
+                }
+                
+                Label lbl_Match = new Label
+                {
+                    Content = match,
+                    Background = lines,
+                    Foreground = matchDayColor,
+                    FontSize = 20.0,
                     HorizontalAlignment = HorizontalAlignment.Stretch,
-                    VerticalAlignment = VerticalAlignment.Stretch
+                    VerticalAlignment = VerticalAlignment.Stretch,
+                    HorizontalContentAlignment = HorizontalAlignment.Center
+
                 };
-                ColumnDefinition col1 = new ColumnDefinition();
-                col1.Width = new GridLength(1, GridUnitType.Auto);
+
                 RowDefinition row1 = new RowDefinition();
                 row1.Height = new GridLength(1, GridUnitType.Auto);
                 grid.RowDefinitions.Add(row1);
-                grid.ColumnDefinitions.Add(col1);
-                
-                Grid.SetColumn(match, column);
-                Grid.SetRow(match, row);
-                grid.Children.Add(match);
-                
-               
-                column++;
-                if (column > 1)
-                {
-                    column = 0;
-                    row++;
-                }
+                Grid.SetRow(lbl_Match, row);
+
+                grid.Children.Add(lbl_Match);
+                row++;
             }
-            
+         
+
+        }
+        public void GetMatchesForSaison()
+        {
+            int row = 0;
+           
+            foreach (var game in repFirstRound)
+            {
+                if (row % 2 == 0)
+                {
+                    lines = Brushes.LightCyan;
+                }
+                else
+                {
+                    lines = Brushes.LightGray;
+                }
+                if (game.Substring(0,5) == "Spiel")
+                {
+                    matchDayColor = Brushes.White;
+                    lines = Brushes.Black;
+                }
+                else
+                {
+                    matchDayColor = Brushes.Black;
+                }
+               
+                
+                Label match = new Label
+                {
+                    Content = game,
+                    Foreground = matchDayColor,
+                    Background = lines,
+                    FontSize = 20.0,
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    VerticalAlignment = VerticalAlignment.Stretch,
+                    HorizontalContentAlignment = HorizontalAlignment.Center
+                    
+                };
+               
+                RowDefinition row1 = new RowDefinition();
+                row1.Height = new GridLength(1, GridUnitType.Auto);
+                grid.RowDefinitions.Add(row1);
+                Grid.SetRow(match, row);
+               
+                grid.Children.Add(match);
+                row++;
+            }
+            foreach (var game in repSecondRound)
+            {
+                if (row % 2 == 0)
+                {
+                    lines = Brushes.LightCyan;
+                }
+                else
+                {
+                    lines = Brushes.LightGray;
+                }
+                if (game.Substring(0, 5) == "Spiel")
+                {
+                    matchDayColor = Brushes.White;
+                    lines = Brushes.Black;
+                }
+                else
+                {
+                    matchDayColor = Brushes.Black;
+                }
+               
+                
+                Label match = new Label
+                {
+                    Content = game,
+                    Foreground = matchDayColor,
+                    Background = lines,
+                    FontSize = 20.0,
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    VerticalAlignment = VerticalAlignment.Stretch,
+                    HorizontalContentAlignment = HorizontalAlignment.Center
+                };
+
+                RowDefinition row1 = new RowDefinition();
+                row1.Height = new GridLength(1, GridUnitType.Auto);
+                grid.RowDefinitions.Add(row1);
+                Grid.SetRow(match, row);
+               
+                grid.Children.Add(match);
+                row++;
+            }
+
+
         }
     }
 }
