@@ -19,32 +19,84 @@ namespace FootballManager2021
     /// </summary>
     public partial class Matches : Window
     {
-        MatchDay matchday;
+        MatchDayClass matchday;
         List<string> repFirstRound, repSecondRound;
         Club myTeam;
         List<Club> league;
         SolidColorBrush matchDayColor, lines;
-        List<string> myTeamFR, awayTeamsFR, myteamSR, awayTeamSR;
+        List<string> myTeamRounds, awayTeamsFR, myteamSR, awayTeamSR;
         public Matches(List<Club> league, Club myTeam)
         {
             InitializeComponent();
             // Den Spielplan aufnehmen
-            myTeamFR = new List<string>();
+            myTeamRounds = new List<string>();
             awayTeamsFR = new List<string>();
           
             matchDayColor = new SolidColorBrush();
             lines = new SolidColorBrush();
             this.league = league;
             this.myTeam = myTeam;
-            matchday = new MatchDay(league);
+            matchday = new MatchDayClass(league);
             repFirstRound = matchday.GetFirstRound(league);
             repSecondRound = matchday.GetSecondRound(league);
            
            
         }
+        public string GetNextMatchForMyTeam(string matchDay)
+        {
+            repFirstRound = matchday.GetFirstRound(league);
+            repSecondRound = matchday.GetSecondRound(league);
+            GetMatchesForMyTeam();
+            string nextMatch = string.Empty;
+            for (int i = 0; i < myTeamRounds.Count; i++)
+            {
+                if (myTeamRounds[i] == matchDay)
+                {
+                    nextMatch = myTeamRounds[i + 1];
+                    break;
+                }
+            }
+
+            return nextMatch;
+        }
+        public List<string> GetnextMatchDayForAllTeams(string matchDay)
+        {
+            List<string> nextMatchDayForAll = new List<string>();
+            repFirstRound = matchday.GetFirstRound(league);
+            repSecondRound = matchday.GetSecondRound(league);
+            for (int i = 0; i < repFirstRound.Count; i++)
+            {
+                if (repFirstRound[i].Contains(matchDay))
+                {
+                    int counter = i;
+                    int leagueSize = league.Count / 2; //die größe der Liga geteilt durch 2 enspricht der Anzahl aller Spiele eines Spieltages
+                    for (int y = 0; y < leagueSize; y++)//Extrahiert die nächsten 10 Spiel nachdem der letzte string Spieltag Var enthalten hat.....
+                    {
+                       nextMatchDayForAll.Add(repFirstRound[counter]);
+                       counter++;
+                    }
+                }
+            }
+            //Wenn wir uns schon in der Rückrunde befinden auch hier den gesuchten Spieltag finden
+            for (int i = 0; i < repSecondRound.Count; i++)
+            {
+                if (repSecondRound[i].Contains(matchDay))
+                {
+                    int counter = i;
+                    int leagueSize = league.Count / 2; //die größe der Liga geteilt durch 2 enspricht der Anzahl aller Spiele eines Spieltages
+                    for (int y = 0; y < leagueSize; y++)//Extrahiert die nächsten 10 Spiel nachdem der letzte string Spieltag Var enthalten hat.....
+                    {
+                        nextMatchDayForAll.Add(repSecondRound[counter]);
+                        counter++;
+                    }
+                }
+            }
+            return nextMatchDayForAll;
+        }
         public void GetMatchesForMyTeam()
         {
-           
+            repFirstRound = matchday.GetFirstRound(league);
+            repSecondRound = matchday.GetSecondRound(league);
             int row = 0;
             int myMatchDayCount = 1;
             string myMatch = string.Empty;
@@ -52,8 +104,8 @@ namespace FootballManager2021
             {
                 if (match.Contains(myTeam.ClubName))
                 {
-                    myTeamFR.Add("Spieltag " + myMatchDayCount);
-                    myTeamFR.Add(match);
+                    myTeamRounds.Add("Spieltag " + myMatchDayCount);
+                    myTeamRounds.Add(match);
                     myMatchDayCount++;
                 }
             }
@@ -61,14 +113,14 @@ namespace FootballManager2021
             {
                 if (match.Contains(myTeam.ClubName))
                 {
-                    myTeamFR.Add("Spieltag " + myMatchDayCount);
-                    myTeamFR.Add(match);
+                    myTeamRounds.Add("Spieltag " + myMatchDayCount);
+                    myTeamRounds.Add(match);
                     myMatchDayCount++;
                 }
             }
 
             //Hinrunde mein Team
-            foreach (var match in myTeamFR )
+            foreach (var match in myTeamRounds )
             {
                 if (row % 2 == 0)
                 {
@@ -113,6 +165,8 @@ namespace FootballManager2021
         }
         public void GetMatchesForSaison()
         {
+            repFirstRound = matchday.GetFirstRound(league);
+            repSecondRound = matchday.GetSecondRound(league);
             int row = 0;
            
             foreach (var game in repFirstRound)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,14 +20,17 @@ namespace FootballManager2021
     /// </summary>
     public partial class MyTeamWindow : Window
     {
-        List<Player> myPlayer;
+        List<Player> myPlayer, otherTeam;
         List<Club> leagueTeams;
         Club myClub;
+        Matches matches;
         public MyTeamWindow(List<Player> myPlayer,List<Club> leagueTeams)
         {
             InitializeComponent();
+            matches = new Matches(leagueTeams, myClub);
             this.myPlayer = myPlayer;
             this.leagueTeams = leagueTeams;
+            otherTeam = new List<Player>();
             foreach (var club in leagueTeams)
             {
                 if (myPlayer[0].ActualClub == club.ClubName)
@@ -39,7 +43,8 @@ namespace FootballManager2021
 
         private void btnNextMatch_Click(object sender, RoutedEventArgs e)
         {
-
+            MatchDayWindow window = new MatchDayWindow(true, false, leagueTeams, myClub); // parameter 1 schaltet das nächste Match für myTeam, parameter 2 für alle Teams...
+            window.Show();
         }
 
         private void btnViewTeam_Click(object sender, RoutedEventArgs e)
@@ -51,16 +56,12 @@ namespace FootballManager2021
 
         private void btnViewMatches_Click(object sender, RoutedEventArgs e)
         {
-            Matches matches = new Matches(leagueTeams, myClub);
-           
             matches.Show();
             matches.GetMatchesForSaison();
         }
 
         private void btnViewMatchesMyTeam_Click(object sender, RoutedEventArgs e)
         {
-            Matches matches = new Matches(leagueTeams, myClub);
-           
             matches.Show();
             matches.GetMatchesForMyTeam();
         }

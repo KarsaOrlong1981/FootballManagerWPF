@@ -66,7 +66,7 @@ namespace FootballManager2021
                 grid.Children.Add(btnX);
                 row++;
             }
-            new MatchDay(league);
+            new MatchDayClass(league);
         }
 
         private void BtnX_Click(object sender, RoutedEventArgs e)

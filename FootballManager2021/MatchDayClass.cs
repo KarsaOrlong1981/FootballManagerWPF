@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace FootballManager2021
 {
-    public class MatchDay
+    public class MatchDayClass
     {
         List<Club> league;
       
         Club[] rep;
         List<string> clubsFR, clubsSR;
         Club[,] repertoire;
-        public MatchDay(List<Club> league)
+        public MatchDayClass(List<Club> league)
         {
             this.league = league;
             //erstellung des Spielplans jeder gegen jeden
@@ -129,12 +129,12 @@ namespace FootballManager2021
         }
         private  void printMatchFR(String teamA, String teamB)
         {
-            clubsFR.Add(teamA + "  -  " + teamB);
+            clubsFR.Add(teamA + "-" + teamB);
         }
         private void printMatchSR(String teamA, String teamB)
         {
 
-            clubsSR.Add(teamA + "  -  " + teamB);
+            clubsSR.Add(teamA + "-" + teamB);
           
 
         }

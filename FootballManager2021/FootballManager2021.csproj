@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MatchDayWindow.xaml.cs">
+      <DependentUpon>MatchDayWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Matches.xaml.cs">
       <DependentUpon>Matches.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MatchDayWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Matches.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -93,7 +100,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MatchDay.cs" />
+    <Compile Include="MatchDayClass.cs" />
     <Compile Include="MatchResult.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
