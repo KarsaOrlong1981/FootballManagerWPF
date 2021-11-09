@@ -37,7 +37,7 @@ namespace FootballManager2021
             ClubStrength = overallStrength / memberCounter;
             return ClubStrength;
         }
-        //um so höher die Loyalität der Fans um so Auswärtsstärker wird das Team
+        //umso höher die Loyalität der Fans umso Auswärtsstärker wird das Team
         //Heimteams haben immer einen Bonus ausser sie verlieren 4 Spiele hintereinander dann bekommen sie einen Malus
         public int GetFansLoyality(int bonus_malus)
         {

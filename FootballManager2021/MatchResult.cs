@@ -19,7 +19,8 @@ namespace FootballManager2021
         double sizeA, sizeB;
         Club club;
         List<string> goalsAssistsA, goalsAssistsB;
-        
+        Random rndMinute = new Random();
+        Random rndScorer = new Random();
         List<Player> clubA, clubB, bestHeadShoot, bestPassFlank, poolGoals, poolAssists, finalGoalsA, finalGoalsB,finalAssistsA, finalAssistsB;
        
         public MatchResult(List<Player> clubA, List<Player> clubB)
@@ -80,19 +81,28 @@ namespace FootballManager2021
         }
         public List<string> GetGoalsAssistForGameTeamA()
         {
+            
+            int lastMinute = 1;
             for (int i = 0; i < goalsTeamA; i++)
             {
-                goalsAssistsA.Add(finalGoalsA[i].Forename + " " + finalGoalsA[i].Surname + " durch Vorlage von " + finalAssistsA[i].Forename + " " + finalAssistsA[i].Surname);
+
+                int minute = rndMinute.Next(lastMinute, 94);
+                lastMinute = minute + 1;
+                goalsAssistsA.Add(minute + "` Tor durch " + finalGoalsA[i].Forename + " " + finalGoalsA[i].Surname + "\n" + "Vorlage von " + finalAssistsA[i].Forename + " " + finalAssistsA[i].Surname);
+                
                 Debug.WriteLine("Tor Team A: " + finalGoalsA[i].Surname + " durch Vorlage von: " + finalAssistsA[i].Surname);
             }
             return goalsAssistsA;
         }
         public List<string> GetGoalsAssistForGameTeamB()
         {
-            
+           
+            int lastMinute = 1;
             for (int i = 0; i < goalsTeamB; i++)
             {
-                goalsAssistsB.Add(finalAssistsB[i].Forename + " " + finalGoalsB[i].Surname + " durch Vorlage von " + finalAssistsB[i].Forename + " " + finalAssistsB[i].Surname);
+                int minute = rndMinute.Next(lastMinute, 94);
+                lastMinute = minute + 1;
+                goalsAssistsB.Add(minute + "` Tor durch " + finalGoalsB[i].Forename + " " + finalGoalsB[i].Surname + "\n" + "Vorlage von " + finalAssistsB[i].Forename + " " + finalAssistsB[i].Surname);
                 Debug.WriteLine("Tor Team B: " + finalGoalsB[i].Surname + " durch Vorlage von: " + finalAssistsB[i].Surname);
             }
             return goalsAssistsB;
@@ -134,7 +144,7 @@ namespace FootballManager2021
         private List<Player> GetAssistsA(List<Player> clubA)
         {
             List<Player> assist = new List<Player>();
-            Random rndScorer = new Random();
+           
            
             for (int i = 0; i < goalsTeamA; i++)
             {

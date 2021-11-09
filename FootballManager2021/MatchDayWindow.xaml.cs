@@ -40,7 +40,11 @@ namespace FootballManager2021
         {
             //Hier muss ich noch die Torschützen und Vorlagengeber ausgeben lassen + eine Methode um die Ergebnisse und Torschützen + Vorlagengeber aller anderen partien auszugeben
             string nextMatch = string.Empty;
+            List<string> goalsAssistsA = new List<string>();
+            List<string> goalsAssistsB = new List<string>();
+           
             nextMatch = matches.GetNextMatchForMyTeam(matchDay);
+            
             string[] teams = nextMatch.Split('-');
             foreach (var club in league)
             {
@@ -53,7 +57,11 @@ namespace FootballManager2021
                     teamB = club.TeamPlayer;
                 }
             }
+           
+           
             result = new MatchResult(teamA, teamB);
+            goalsAssistsA = result.GetGoalsAssistForGameTeamA();
+            goalsAssistsB = result.GetGoalsAssistForGameTeamB();
             Label labA = new Label 
             {
                 Content = teams[0],
@@ -79,6 +87,8 @@ namespace FootballManager2021
                 FontSize = 25.0,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
+           
+         
             Grid.SetColumn(labA, 0);
             Grid.SetRow(labA, 0);
             Grid.SetColumn(labLine, 1);
@@ -87,12 +97,44 @@ namespace FootballManager2021
             Grid.SetRow(labB, 0);
             Grid.SetColumn(labFinalRes, 3);
             Grid.SetRow(labB, 0);
-
+            
             grid.Children.Add(labA);
             grid.Children.Add(labLine);
             grid.Children.Add(labB);
             grid.Children.Add(labFinalRes);
-            
+            int row = 2;
+            foreach (var goal in goalsAssistsA)
+            {
+                Label labAssistsGoalsA = new Label
+                {
+                    Content = goal,
+                    FontSize = 15.0,
+                    HorizontalAlignment = HorizontalAlignment.Stretch
+                };
+                Grid.SetColumn(labAssistsGoalsA, 0);
+                
+                Grid.SetRow(labAssistsGoalsA, row);
+               
+                grid.Children.Add(labAssistsGoalsA);
+                row++;
+            }
+            row = 2;
+            foreach (var goal in goalsAssistsB)
+            {
+                Label labAssistsGoalsB = new Label
+                {
+                    Content = goal,
+                    FontSize = 15.0,
+                    HorizontalAlignment = HorizontalAlignment.Stretch
+                };
+                Grid.SetColumn(labAssistsGoalsB, 2);
+               
+                Grid.SetRow(labAssistsGoalsB, row);
+                
+                grid.Children.Add(labAssistsGoalsB);
+                row++;
+            }
+
 
             Debug.WriteLine(nextMatch);
         }

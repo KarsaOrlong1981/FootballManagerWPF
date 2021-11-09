@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FootballManager2021"
         mc:Ignorable="d"
         Title="MatchDayWindow" Height="450" Width="800">
-    <Grid x:Name="grid">
+    <Grid x:Name="grid" ShowGridLines="True" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>

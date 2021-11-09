@@ -31,7 +31,7 @@ namespace FootballManager2021
             // Den Spielplan aufnehmen
             myTeamRounds = new List<string>();
             awayTeamsFR = new List<string>();
-          
+            this.myTeam = new Club();
             matchDayColor = new SolidColorBrush();
             lines = new SolidColorBrush();
             this.league = league;
